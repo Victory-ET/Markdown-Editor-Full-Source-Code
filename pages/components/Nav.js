@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 
-const Nav = ({ display }) => {
+const Nav = ({ display, current }) => {
   const [open, isOpen] = useState(false);
   let toggler = false;
   return (
@@ -15,6 +15,7 @@ const Nav = ({ display }) => {
                   <span className=" text-blue-500">Editor</span>
                 </h1>
               </span>
+              <span className=" text-white">Currently Editing: {current}</span>
               <span className="hidden md:block">
                 <div className=" ml-10 flex items-baseline space-x-4">
                   <button

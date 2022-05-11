@@ -12,7 +12,9 @@ const Editor = () => {
   const [value, setValue] = useState("");
   const [stories, getStories] = useState([]);
   const [displayWindow, setDisplayWindow] = useState(false);
+  const [currentFile, setCurrentFile] = useState("");
   const [newFile, setNewFile] = useState("");
+  const accessToken = "OngS2XhS7vcWmNIjBAUAQgtt-115501-kK7YzarA94GA_We88ib9";
   const oauth = "hQJX5carahPryKrq7lSdTwtt";
   // Initialize the client with the oauth token
   const Storyblok = new StoryblokClient({
@@ -28,6 +30,34 @@ const Editor = () => {
         console.log(error);
       });
   }, []);
+
+  const createStory = async () => {
+    await fetch("https://mapi.storyblok.com/v1/spaces/155304/stories", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: accessToken,
+      },
+      body: JSON.stringify({
+        story: {
+          name: newFile,
+          slug: "new-file",
+          content: {
+            component: "Markdown",
+            title: newFile,
+            markdonwns: "",
+          },
+        },
+        publish: 1,
+      }),
+    }).then((response) => {
+      console.log(response);
+    });
+    setDisplayWindow(false);
+    setNewFile("");
+    setValue("");
+    setCurrentFile("");
+  };
 
   // Storyblok.put("spaces/155304/stories", {
   //   story: {
@@ -49,19 +79,20 @@ const Editor = () => {
   //   });
   const handleChange = (e) => {
     setNewFile(e.target.value);
-  }
+  };
 
   const handleInputChange = (e) => {
     setValue(e.target.value);
   };
 
-  const setFile =(dat)=>{
-    setDisplayWindow(dat)
-  }
+  const setFile = (dat) => {
+    setDisplayWindow(dat);
+  };
 
-  const getFileData=(dat)=>{
-    setValue(dat.content.markdonwns)
-  }
+  const getFileData = (dat) => {
+    setValue(dat.content.markdonwns);
+    setCurrentFile(dat.name);
+  };
 
   const markdown = `A paragraph with *emphasis* and **strong importance**.
 
@@ -88,7 +119,7 @@ A table:
 `;
   return (
     <>
-      <Nav display={setFile}/>
+      <Nav display={setFile} current={currentFile} />
       <div className="relative bg-slate-900">
         <div className="relative h-full flex flex-row pt-28">
           <FileList returndata={getFileData} list={stories} />
@@ -141,34 +172,45 @@ A table:
         </div>
         {/* new file creation window */}
         {displayWindow ? (
-        <div className=" absolute h-full w-full flex justify-center items-center top-0 backdrop-blur-lg">
-          <div className="bg-blue-500 rounded-lg p-4">
-            <div className="flex flex-col justify-center items-center gap-8">
-              <div className=" relative w-full flex flex-row justify-between">
-                <h1 className=" font-medium uppercase text-white">
-                  Create a New File
-                </h1>
-                <button onClick={()=>{setDisplayWindow(false)}}>Close</button>
-              </div>
-              <div className="flex flex-row gap-2 justify-center items-center">
-                <div className="flex-1">
-                  <input
-                    className=" rounded-lg p-4 text-black"
-                    type="text"
-                    placeholder="File name"
-                    value={newFile}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="flex-1">
-                  <button className="text-white bg-slate-900 px-4 py-3 rounded-md">
-                    Create File
+          <div className=" absolute h-full w-full flex justify-center items-center top-0 backdrop-blur-lg">
+            <div className="bg-blue-500 rounded-lg p-4">
+              <div className="flex flex-col justify-center items-center gap-8">
+                <div className=" relative w-full flex flex-row justify-between">
+                  <h1 className=" font-medium uppercase text-white">
+                    Create a New File
+                  </h1>
+                  <button
+                    onClick={() => {
+                      setDisplayWindow(false);
+                    }}
+                  >
+                    Close
                   </button>
+                </div>
+                <div className="flex flex-row gap-2 justify-center items-center">
+                  <div className="flex-1">
+                    <input
+                      className=" rounded-lg p-4 text-black"
+                      type="text"
+                      placeholder="File name"
+                      value={newFile}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <button
+                      className="text-white bg-slate-900 px-4 py-3 rounded-md"
+                      onClick={() => {
+                        createStory();
+                      }}
+                    >
+                      Create File
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
         ) : null}
       </div>
     </>
