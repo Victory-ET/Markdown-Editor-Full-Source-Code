@@ -12,6 +12,7 @@ const Editor = () => {
   const [value, setValue] = useState("");
   const [stories, getStories] = useState([]);
   const [displayWindow, setDisplayWindow] = useState(false);
+  const [newFile, setNewFile] = useState("");
   const oauth = "hQJX5carahPryKrq7lSdTwtt";
   // Initialize the client with the oauth token
   const Storyblok = new StoryblokClient({
@@ -46,7 +47,9 @@ const Editor = () => {
   //   .catch((error) => {
   //     console.log(error);
   //   });
-
+  const handleChange = (e) => {
+    setNewFile(e.target.value);
+  }
 
   const handleInputChange = (e) => {
     setValue(e.target.value);
@@ -149,6 +152,8 @@ A table:
                     className=" rounded-lg p-4 text-black"
                     type="text"
                     placeholder="File name"
+                    value={newFile}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="flex-1">
