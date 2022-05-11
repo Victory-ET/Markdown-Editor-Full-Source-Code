@@ -41,7 +41,7 @@ const Editor = () => {
       body: JSON.stringify({
         story: {
           name: newFile,
-          slug: "new-file",
+          slug: newFile.replace(/ /g, ""),
           content: {
             component: "Markdown",
             title: newFile,
