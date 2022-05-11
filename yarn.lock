@@ -133,6 +133,20 @@
   "resolved" "https://registry.npmjs.org/@rushstack/eslint-patch/-/eslint-patch-1.0.8.tgz"
   "version" "1.0.8"
 
+"@storyblok/js@^1.0.4":
+  "integrity" "sha512-R6rJ44ouCcQrCUDOKaeM1oRVW6tqIMfvLVC6SxfSIG0X+JkNtl9iS/cY4OfuaSiZnLndmN9ZkTEusderRvdODA=="
+  "resolved" "https://registry.npmjs.org/@storyblok/js/-/js-1.1.0.tgz"
+  "version" "1.1.0"
+  dependencies:
+    "storyblok-js-client" "^4.2.0"
+
+"@storyblok/react@^1.0.5":
+  "integrity" "sha512-h77CjnLBMIVhqv2pyc2+JyHoWeWp573Iianx+6563+i9f9qsMmwfZTFjs0Ay/Hy64E0zOrJSzF4cj2ej1WeLJQ=="
+  "resolved" "https://registry.npmjs.org/@storyblok/react/-/react-1.0.5.tgz"
+  "version" "1.0.5"
+  dependencies:
+    "@storyblok/js" "^1.0.4"
+
 "@types/acorn@^4.0.0":
   "integrity" "sha512-veQTnWP+1D/xbxVrPC3zHnCZRjSrKfhbMUlEA43iMZLu7EsnTtkJklIuwrCPbOi8YkvDQAiW05VQQFvvz9oieQ=="
   "resolved" "https://registry.npmjs.org/@types/acorn/-/acorn-4.0.6.tgz"
@@ -580,6 +594,13 @@
   "resolved" "https://registry.npmjs.org/axe-core/-/axe-core-4.4.1.tgz"
   "version" "4.4.1"
 
+"axios@^0.21.1":
+  "integrity" "sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg=="
+  "resolved" "https://registry.npmjs.org/axios/-/axios-0.21.4.tgz"
+  "version" "0.21.4"
+  dependencies:
+    "follow-redirects" "^1.14.0"
+
 "axobject-query@^2.2.0":
   "integrity" "sha512-Td525n+iPOOyUQIeBfcASuG6uJsDOITl7Mds5gFyerkWiX7qhUTdYUBlSgNMyVqtSJqwpt1kXGLdUt6SykLMRA=="
   "resolved" "https://registry.npmjs.org/axobject-query/-/axobject-query-2.2.0.tgz"
@@ -753,6 +774,13 @@
   "integrity" "sha1-2Klr13/Wjfd5OnMDajug1UBdR3s="
   "resolved" "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz"
   "version" "0.0.1"
+
+"copy-to-clipboard@^3.3.1":
+  "integrity" "sha512-i13qo6kIHTTpCm8/Wup+0b1mVWETvu2kIMzKoK8FpkLkFxlt0znUAHcMzox+T8sPlqtZXq3CulEjQHsYiGFJUw=="
+  "resolved" "https://registry.npmjs.org/copy-to-clipboard/-/copy-to-clipboard-3.3.1.tgz"
+  "version" "3.3.1"
+  dependencies:
+    "toggle-selection" "^1.0.6"
 
 "core-js-pure@^3.20.2":
   "integrity" "sha512-Lb+/XT4WC4PaCWWtZpNPaXmjiNDUe5CJuUtbkMrIM1kb1T/jJoAIp+bkVP/r5lHzMr+ZAAF8XHp7+my6Ol0ysQ=="
@@ -1312,6 +1340,11 @@
   "integrity" "sha512-WIWGi2L3DyTUvUrwRKgGi9TwxQMUEqPOPQBVi71R96jZXJdFskXEmf54BoZaS1kknGODoIGASGEzBUYdyMCBJg=="
   "resolved" "https://registry.npmjs.org/flatted/-/flatted-3.2.5.tgz"
   "version" "3.2.5"
+
+"follow-redirects@^1.14.0":
+  "integrity" "sha512-MQDfihBQYMcyy5dhRDJUHcw7lb2Pv/TuE6xP1vyraLukNDHKbDxDNaOE3NbCAdKQApno+GPRyo1YAp89yCjK4w=="
+  "resolved" "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.14.9.tgz"
+  "version" "1.14.9"
 
 "format@^0.2.0":
   "integrity" "sha1-1hcBB+nv3E7TDJ3DkBbflCtctYs="
@@ -2800,6 +2833,11 @@
   "resolved" "https://registry.npmjs.org/prelude-ls/-/prelude-ls-1.2.1.tgz"
   "version" "1.2.1"
 
+"prettier@^2.5.1":
+  "integrity" "sha512-PkUpF+qoXTqhOeWL9fu7As8LXsIUZ1WYaJiY/a7McAQzxjk82OF0tibkFXVCDImZtWxbvojFjerkiLb0/q8mew=="
+  "resolved" "https://registry.npmjs.org/prettier/-/prettier-2.6.2.tgz"
+  "version" "2.6.2"
+
 "prismjs@^1.27.0":
   "integrity" "sha512-8aaXdYvl1F7iC7Xm1spqSaY/OJBpYW3v+KJ+F17iYxvdc8sfjW194COK5wVhMZX45tGteiBQgdvD/nhxcRwylw=="
   "resolved" "https://registry.npmjs.org/prismjs/-/prismjs-1.28.0.tgz"
@@ -2853,6 +2891,14 @@
   dependencies:
     "safe-buffer" "^5.1.0"
 
+"react-copy-to-clipboard@^5.1.0":
+  "integrity" "sha512-k61RsNgAayIJNoy9yDsYzDe/yAZAzEbEgcz3DZMhF686LEyukcE1hzurxe85JandPUG+yTfGVFzuEw3xt8WP/A=="
+  "resolved" "https://registry.npmjs.org/react-copy-to-clipboard/-/react-copy-to-clipboard-5.1.0.tgz"
+  "version" "5.1.0"
+  dependencies:
+    "copy-to-clipboard" "^3.3.1"
+    "prop-types" "^15.8.1"
+
 "react-dom@^17.0.2 || ^18.0.0-0", "react-dom@18.0.0":
   "integrity" "sha512-XqX7uzmFo0pUceWFCt7Gff6IyIMzFUn7QMZrbrQfGxtaxXZIcGQzoNpRLE3fQLnS4XzLLPMZX2T9TRcSrasicw=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-18.0.0.tgz"
@@ -2903,7 +2949,7 @@
     "prismjs" "^1.27.0"
     "refractor" "^3.6.0"
 
-"react@^17.0.2 || ^18.0.0-0", "react@^18.0.0", "react@>= 0.14.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16", "react@18.0.0":
+"react@^15.3.0 || 16 || 17 || 18", "react@^17.0.2 || ^18.0.0-0", "react@^18.0.0", "react@>= 0.14.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16", "react@18.0.0":
   "integrity" "sha512-x+VL6wbT4JRVPm7EGxXhZ8w8LTROaxPXOqhlGyVSrv0sB1jkyFGgXxJ8LVoPRLvPR6/CIZGFmfzqUa2NYeMr2A=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.0.0.tgz"
   "version" "18.0.0"
@@ -3015,6 +3061,11 @@
   "version" "3.0.2"
   dependencies:
     "glob" "^7.1.3"
+
+"rollup-plugin-mjs-entry@^0.1.1":
+  "integrity" "sha512-uii0Txyrn4YCgP++fypLqsT3LgO3Fx0gAZLZlWRSwKCuZ+bdSzAzdVbJFATmCHcBNlO61i65EgemOVdVQYONHA=="
+  "resolved" "https://registry.npmjs.org/rollup-plugin-mjs-entry/-/rollup-plugin-mjs-entry-0.1.1.tgz"
+  "version" "0.1.1"
 
 "run-parallel@^1.1.9":
   "integrity" "sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA=="
@@ -3146,6 +3197,14 @@
   "integrity" "sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw="
   "resolved" "https://registry.npmjs.org/sprintf-js/-/sprintf-js-1.0.3.tgz"
   "version" "1.0.3"
+
+"storyblok-js-client@^4.2.0", "storyblok-js-client@^4.4.0":
+  "integrity" "sha512-QVc+efhHlFiP8f7ZlfqJ6XYaoITjC3UvP1qA9ebjNFGARap/2Q3sUl7DR5OWKVBC9bx7tsN0OWWzuTPvdRwwsQ=="
+  "resolved" "https://registry.npmjs.org/storyblok-js-client/-/storyblok-js-client-4.4.0.tgz"
+  "version" "4.4.0"
+  dependencies:
+    "prettier" "^2.5.1"
+    "rollup-plugin-mjs-entry" "^0.1.1"
 
 "string.prototype.matchall@^4.0.6":
   "integrity" "sha512-f48okCX7JiwVi1NXCVWcFnZgADDC/n2vePlQ/KUCNqCikLLilQvwjMO8+BHVKvgzH0JB0J9LEPgxOGT02RoETg=="
@@ -3302,6 +3361,11 @@
   "version" "5.0.1"
   dependencies:
     "is-number" "^7.0.0"
+
+"toggle-selection@^1.0.6":
+  "integrity" "sha1-bkWxJj8gF/oKzH2J14sVuL932jI="
+  "resolved" "https://registry.npmjs.org/toggle-selection/-/toggle-selection-1.0.6.tgz"
+  "version" "1.0.6"
 
 "trough@^2.0.0":
   "integrity" "sha512-AqTiAOLcj85xS7vQ8QkAV41hPDIJ71XJB4RCUrzo/1GM2CQwhkJGaf9Hgr7BOugMRpgGUrqRg/DrBDl4H40+8g=="

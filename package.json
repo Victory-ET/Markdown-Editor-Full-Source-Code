@@ -12,14 +12,17 @@
     "@mdx-js/loader": "^2.1.1",
     "@mdx-js/react": "^2.1.1",
     "@next/mdx": "^12.1.5",
+    "@storyblok/react": "^1.0.5",
     "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",
     "next": "12.1.5",
     "react": "18.0.0",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "18.0.0",
     "react-markdown": "^8.0.3",
     "react-syntax-highlighter": "^15.5.0",
-    "remark-gfm": "^3.0.1"
+    "remark-gfm": "^3.0.1",
+    "storyblok-js-client": "^4.4.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.4",
