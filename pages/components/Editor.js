@@ -59,6 +59,10 @@ const Editor = () => {
     setDisplayWindow(dat)
   }
 
+  const getFileData=(dat)=>{
+    setValue(dat.content.markdonwns)
+  }
+
   const markdown = `A paragraph with *emphasis* and **strong importance**.
 
 > A block quote with ~strikethrough~ and a URL: https://reactjs.org.
@@ -87,7 +91,7 @@ A table:
       <Nav display={setFile}/>
       <div className="relative bg-slate-900">
         <div className="relative h-full flex flex-row pt-28">
-          <FileList list={stories} />
+          <FileList returndata={getFileData} list={stories} />
           <div className=" w-3/4 border border-slate-900 py-8 px-8">
             <button
               className="cursor-pointer relative text-blue-500 font-semibold text-md"

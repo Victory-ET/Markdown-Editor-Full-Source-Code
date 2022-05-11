@@ -1,6 +1,6 @@
 import React from "react";
 
-const FileList = ({list}) => {
+const FileList = ({list, returndata}) => {
   return (
     <div className=" relative w-1/4 bg-slate-700 h-screen pt-8 pl-6">
       <div className=" text-white">
@@ -11,7 +11,9 @@ const FileList = ({list}) => {
             return (
               <div key={index} className=" my-2 hover:cursor-pointer">
                 <div>
-                  <span className="text-white">{file.name}</span>
+                  <span className="text-white" onClick={()=>{
+                    returndata(file)
+                  }}>{file.name}</span>
                 </div>
             </div>
             );
