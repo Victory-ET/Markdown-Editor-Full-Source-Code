@@ -15,7 +15,7 @@ const Nav = ({ display, current }) => {
                   <span className=" text-blue-500">Editor</span>
                 </h1>
               </span>
-              <span className=" text-white">Currently Editing: {current}</span>
+              <span className=" text-white">Currently Editing: {current.name}</span>
               <span className="hidden md:block">
                 <div className=" ml-10 flex items-baseline space-x-4">
                   <button

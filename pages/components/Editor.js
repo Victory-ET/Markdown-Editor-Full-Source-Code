@@ -59,24 +59,7 @@ const Editor = () => {
     setCurrentFile("");
   };
 
-  // Storyblok.put("spaces/155304/stories", {
-  //   story: {
-  //     name: "Story Name",
-  //     slug: "story-name",
-  //     content: {
-  //       component: "Markdown",
-  //       markdonwns: '```js\nconsole.log("apple")\n```',
-  //       title: "This is an apple",
-  //     },
-  //   },
-  //   publish: 1,
-  // })
-  //   .then((response) => {
-  //     console.log(response);
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
+
   const handleChange = (e) => {
     setNewFile(e.target.value);
   };
@@ -91,7 +74,7 @@ const Editor = () => {
 
   const getFileData = (dat) => {
     setValue(dat.content.markdonwns);
-    setCurrentFile(dat.name);
+    setCurrentFile(dat);
   };
 
   const markdown = `A paragraph with *emphasis* and **strong importance**.
