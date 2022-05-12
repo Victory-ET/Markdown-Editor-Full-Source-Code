@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 
-const Nav = ({ display, current, save }) => {
+const Nav = ({ display, current, save, Delete }) => {
   const [open, isOpen] = useState(false);
   let toggler = false;
   return (
@@ -32,10 +32,18 @@ const Nav = ({ display, current, save }) => {
                   <button
                     className="bg-blue-500 inline-flex items-center justify-center py-2  px-4 rounded-md text-white outline-none "
                     onClick={() => {
-                      save(current)
+                      save(current);
                     }}
                   >
                     Save
+                  </button>
+                  <button
+                    className="bg-red-500 inline-flex items-center justify-center py-2  px-4 rounded-md text-white outline-none "
+                    onClick={() => {
+                      Delete(current);
+                    }}
+                  >
+                    Delete
                   </button>
                 </div>
               </span>
@@ -91,11 +99,30 @@ const Nav = ({ display, current, save }) => {
         {open ? (
           <div className=" md:hidden id=mobile-menu">
             <div className="bg-white px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <button className="cursor-pointer text-black block px-3 py-2 rounded-md text-base font-medium">
+              <button
+                onClick={() => {
+                  display(!toggler);
+                  toggler = true;
+                }}
+                className="cursor-pointer text-black block px-3 py-2 rounded-md text-base font-medium"
+              >
                 Create New File
               </button>
-              <button className="cursor-pointer font-medium bg-blue-500 inline-flex items-center justify-center py-2  px-4 rounded-md text-white hover:bg-blue-600 outline-none">
+              <button
+                onClick={() => {
+                  save(current);
+                }}
+                className="cursor-pointer font-medium bg-blue-500 inline-flex items-center justify-center py-2  px-4 rounded-md text-white hover:bg-blue-600 outline-none"
+              >
                 Save
+              </button>
+              <button
+                className="bg-red-500 inline-flex items-center justify-center py-2  px-4 rounded-md text-white outline-none "
+                onClick={() => {
+                  Delete(current);
+                }}
+              >
+                Delete
               </button>
             </div>
           </div>

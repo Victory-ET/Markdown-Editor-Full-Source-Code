@@ -9,7 +9,7 @@ const FileList = ({list, returndata}) => {
           <hr className=" bg-white w-3/4 mt-2" />
           {list && list.map((file, index) => {
             return (
-              <div key={index} className=" my-2 hover:cursor-pointer">
+              <div key={index} className=" my-2 hover:cursor-pointer hover:bg-slate-900 px-2 py-1">
                 <div>
                   <span className="text-white" onClick={()=>{
                     returndata(file)

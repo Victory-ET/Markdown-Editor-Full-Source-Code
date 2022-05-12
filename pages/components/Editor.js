@@ -102,6 +102,20 @@ const Editor = () => {
     });
   };
 
+  const handleDelete = async (dat) => {
+    await fetch(`https://mapi.storyblok.com/v1/spaces/155304/stories/${dat.id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: accessToken,
+      },
+    }).then((response) => {
+      console.log(response);
+    }
+    );
+  }
+
+
 
   const markdown = `A paragraph with *emphasis* and **strong importance**.
 
@@ -128,7 +142,7 @@ A table:
 `;
   return (
     <>
-      <Nav display={setFile} current={currentFile} save={handleSave} />
+      <Nav display={setFile} current={currentFile} save={handleSave} Delete={handleDelete} />
       <div className="relative bg-slate-900">
         <div className="relative h-full flex flex-row pt-28">
           <FileList returndata={getFileData} list={stories} />
