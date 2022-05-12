@@ -14,9 +14,9 @@ const Editor = () => {
   const [displayWindow, setDisplayWindow] = useState(false);
   const [currentFile, setCurrentFile] = useState("");
   const [newFile, setNewFile] = useState("");
-  const [saveFile, setSafeFile] = useState("");
-  const accessToken = "OngS2XhS7vcWmNIjBAUAQgtt-115501-kK7YzarA94GA_We88ib9";
-  const oauth = "hQJX5carahPryKrq7lSdTwtt";
+  const [callback, setCallback] = useState("");
+  const accessToken = "";
+  const oauth = "";
   // Initialize the client with the oauth token
   const Storyblok = new StoryblokClient({
     accessToken: oauth,
@@ -30,7 +30,7 @@ const Editor = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [callback]);
 
   const createStory = async () => {
     await fetch("https://mapi.storyblok.com/v1/spaces/155304/stories", {
@@ -52,7 +52,8 @@ const Editor = () => {
         publish: 1,
       }),
     }).then((response) => {
-      console.log(response);
+      // console.log(response);
+      setCallback(response);
     });
     setDisplayWindow(false);
     setNewFile("");
@@ -98,7 +99,8 @@ const Editor = () => {
         publish: 1,
       }),
     }).then((response) => {
-      console.log(response);
+      // console.log(response);
+      setCallback(response);
     });
   };
 
@@ -110,7 +112,8 @@ const Editor = () => {
         Authorization: accessToken,
       },
     }).then((response) => {
-      console.log(response);
+      // console.log(response);
+      setCallback(response);
     }
     );
   }
