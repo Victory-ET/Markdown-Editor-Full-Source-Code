@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 
-const Nav = ({ display, current }) => {
+const Nav = ({ display, current, save }) => {
   const [open, isOpen] = useState(false);
   let toggler = false;
   return (
@@ -15,7 +15,9 @@ const Nav = ({ display, current }) => {
                   <span className=" text-blue-500">Editor</span>
                 </h1>
               </span>
-              <span className=" text-white">Currently Editing: {current.name}</span>
+              <span className=" text-white">
+                Currently Editing: {current.name}
+              </span>
               <span className="hidden md:block">
                 <div className=" ml-10 flex items-baseline space-x-4">
                   <button
@@ -27,7 +29,12 @@ const Nav = ({ display, current }) => {
                   >
                     Create new file
                   </button>
-                  <button className="bg-blue-500 inline-flex items-center justify-center py-2  px-4 rounded-md text-white outline-none ">
+                  <button
+                    className="bg-blue-500 inline-flex items-center justify-center py-2  px-4 rounded-md text-white outline-none "
+                    onClick={() => {
+                      save(current)
+                    }}
+                  >
                     Save
                   </button>
                 </div>

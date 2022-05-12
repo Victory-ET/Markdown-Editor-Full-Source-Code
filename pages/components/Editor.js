@@ -14,6 +14,7 @@ const Editor = () => {
   const [displayWindow, setDisplayWindow] = useState(false);
   const [currentFile, setCurrentFile] = useState("");
   const [newFile, setNewFile] = useState("");
+  const [saveFile, setSafeFile] = useState("");
   const accessToken = "OngS2XhS7vcWmNIjBAUAQgtt-115501-kK7YzarA94GA_We88ib9";
   const oauth = "hQJX5carahPryKrq7lSdTwtt";
   // Initialize the client with the oauth token
@@ -59,7 +60,6 @@ const Editor = () => {
     setCurrentFile("");
   };
 
-
   const handleChange = (e) => {
     setNewFile(e.target.value);
   };
@@ -76,6 +76,32 @@ const Editor = () => {
     setValue(dat.content.markdonwns);
     setCurrentFile(dat);
   };
+
+  const handleSave = async (dat) => {
+    await fetch(`https://mapi.storyblok.com/v1/spaces/155304/stories/${dat.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: accessToken,
+      },
+      body: JSON.stringify({
+        story: {
+          name: dat.name,
+          slug: dat.slug,
+          id: dat.id,
+          content: {
+            component: "Markdown",
+            title: dat.content.title,
+            markdonwns: value,
+          },
+        },
+        publish: 1,
+      }),
+    }).then((response) => {
+      console.log(response);
+    });
+  };
+
 
   const markdown = `A paragraph with *emphasis* and **strong importance**.
 
@@ -102,7 +128,7 @@ A table:
 `;
   return (
     <>
-      <Nav display={setFile} current={currentFile} />
+      <Nav display={setFile} current={currentFile} save={handleSave} />
       <div className="relative bg-slate-900">
         <div className="relative h-full flex flex-row pt-28">
           <FileList returndata={getFileData} list={stories} />
