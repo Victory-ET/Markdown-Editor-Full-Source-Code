@@ -5,7 +5,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import atomDark from "react-syntax-highlighter/dist/cjs/styles/prism/atom-dark";
-import StoryblokClient from "storyblok-js-client";
+import { storyblokInit, apiPlugin, getStoryblokApi } from "@storyblok/react";
 
 const Editor = () => {
   const [show, setShow] = useState(false);
@@ -18,12 +18,15 @@ const Editor = () => {
   const accessToken = "";
   const oauth = "";
   // Initialize the client with the oauth token
-  const Storyblok = new StoryblokClient({
+ storyblokInit({
     accessToken: oauth,
+    use: [apiPlugin],
   });
 
+  const storyblokApi = getStoryblokApi();
+
   useEffect(() => {
-    Storyblok.get("cdn/stories", {})
+    storyblokApi.get("cdn/stories", {})
       .then((response) => {
         getStories(response.data.stories);
       })
